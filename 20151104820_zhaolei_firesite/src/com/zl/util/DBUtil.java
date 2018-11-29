@@ -21,11 +21,11 @@ public class DBUtil {
 		}
 	}
 
-	public static Connection getConnection() throws SQLException {
+	public static com.mysql.jdbc.Connection getConnection() throws SQLException {
 
 		Connection conn = DriverManager.getConnection(getUrl(), userName, password);
 		conn.setAutoCommit(true);
-		return conn;
+		return (com.mysql.jdbc.Connection) conn;
 	}
 
 	public static int getGeneratedInt(Statement stmt) throws SQLException {

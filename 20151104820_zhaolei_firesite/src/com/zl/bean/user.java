@@ -3,7 +3,8 @@ package com.zl.bean;
 public class user {
 	private int id;
 	private String username;
-	private String email;
+	private String phone;
+	private String sex;
 	private String userpassword;
 	public int getId() {
 		return id;
@@ -17,11 +18,18 @@ public class user {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getEmail() {
-		return email;
+	
+	public String getPhone() {
+		return phone;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 	public String getUserpassword() {
 		return userpassword;
