@@ -8,45 +8,56 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBUtil {
-	private static String url = "jdbc:mysql://localhost:3306/bishe"
-			+ "?useSSL=true&characterEncoding=utf-8";
-	private static String userName = "root";
-	private static String password = "123456";
+	//数据库mysql
+	static String name = "root";//用户名
+	static String password = "123456";//密码
+	static String url = "jdbc:mysql://localhost:3306/bishe";
 	static {
-		//mysql jdbc driver
-		try {
-			com.mysql.jdbc.Driver.class.newInstance();
-		} catch (InstantiationException | IllegalAccessException e) {
+		try{
+			//加载驱动类
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch(ClassNotFoundException e){
 			e.printStackTrace();
 		}
 	}
-
-	public static com.mysql.jdbc.Connection getConnection() throws SQLException {
-
-		Connection conn = DriverManager.getConnection(getUrl(), userName, password);
-		conn.setAutoCommit(true);
-		return (com.mysql.jdbc.Connection) conn;
+	//进行数据库连接
+	public static Connection getConnection() {
+		Connection conn = null;
+		try{
+			conn = DriverManager.getConnection(url, name, password);
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return conn;
 	}
-
-	public static int getGeneratedInt(Statement stmt) throws SQLException {
-		ResultSet rs = stmt.getGeneratedKeys();
-		rs.next();
-		return rs.getInt(1);
-
-	}
-
-	public static String getUrl() {
-		return url;
-	}
-
-	public static void setUrl(String url) {
-		DBUtil.url = url;
-	}
-
+	//关闭 rs，pstmt，conn
 	public static void closeJDBC(ResultSet rs, PreparedStatement pstmt, Connection conn) {
-		// TODO Auto-generated method stub
+		if(rs !=null){
+			try{
+				rs.close();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+		}
+		if(pstmt !=null){
+			try{
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		if(conn != null)
+		{
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 	}
-
 
 }

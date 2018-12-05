@@ -59,33 +59,7 @@ input[type="text"]:hover{
 
 <script type="text/javascript">
 function tijiao(){
-	var userName =  document.getElementById("username").value;
-	var userPassword =  document.getElementById("userpassword").value;
-	if(userName==null || userName==""){
-		alert("用户名不能为空");
-	}
-	else if(userPassword==null || userPassword==""){
-		alert("密码不能为空");
-	}
-	else{
-	var xmlHttp = new XMLHttpRequest();
-	xmlHttp.open("POST","/20151104820_zhaolei_firesite/Regsiter?username="+userName,true);
-	xmlHttp.onreadystatechange = function(){
-		if(xmlHttp.readyState==4 && xmlHttp.status==200){
-			var resultAjax = xmlHttp.responseText;
-			if(resultAjax==1){
-				alert("用户名已存在");
-				document.getElementById("username").value = "";
-			}
-			if(resultAjax==0){
-				alert("注册成功");
-				document.getElementById("form").submit();	
-				window.location.href="user.jsp";
-			}
-		}
-	}
-	xmlHttp.send();
-	}
+	window.location.href="userregsiter";
 }
 function tuichu(){
 	window.location.href="user.jsp";
@@ -97,7 +71,7 @@ function tuichu(){
 <body>
 
 	<div align="center">消防网站注册 </div>
-	<form action="userregister" method="post" id="form" onsubmit="return false">
+	<form action="userregsiter" method="post" id="form" onsubmit="return false">
 	<table>
     <tr><td><span>用户名</span></td><td><input type="text" name="username" id="username" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'')" required placeholder="用户名必须为英文" /></td></tr>
     <tr></tr>

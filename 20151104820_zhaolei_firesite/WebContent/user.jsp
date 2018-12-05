@@ -52,7 +52,7 @@
 
 	<div id="hidebg" class="hidebg"></div>
 	<div id="win" class="win" style="display:none">
-		<form action="" method="post">
+		<form action="userservlet" method="post">
 			<span style="font-size:20px; color:green">欢迎登陆</span><br />
 			<label class="label">用户名</label><input type="text" name="username" id="username" required placeholder="请输入您的用户名" /><br />
 			<label class="label">密码</label><input type="password" name="userpassword" id="userpassword" required placeholder="请输入您的密码" /><br />
