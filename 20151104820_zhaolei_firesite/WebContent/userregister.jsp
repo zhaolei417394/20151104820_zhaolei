@@ -58,9 +58,6 @@ input[type="text"]:hover{
 </style>
 
 <script type="text/javascript">
-function tijiao(){
-	window.location.href="userregsiter";
-}
 function tuichu(){
 	window.location.href="user.jsp";
 }
@@ -71,7 +68,7 @@ function tuichu(){
 <body>
 
 	<div align="center">消防网站注册 </div>
-	<form action="userregsiter" method="post" id="form" onsubmit="return false">
+	<form action="userregsiter" method="post">
 	<table>
     <tr><td><span>用户名</span></td><td><input type="text" name="username" id="username" onkeyup="this.value=this.value.replace(/[^a-zA-Z]/g,'')" required placeholder="用户名必须为英文" /></td></tr>
     <tr></tr>
@@ -81,9 +78,9 @@ function tuichu(){
     <tr></tr>
     <tr><td>手机号码</td><td><input type="text" name="phone" id="phone" /></td></tr>
     <tr></tr>
-    <tr><td align="center"></td><td><input type="button" value="注册" onClick="tijiao()"/></td></tr>
-        <tr></tr>
-    <tr><td align="center"></td><td><input type="button" value="退出" onClick="tuichu()"/></td></tr>
+    <tr><td align="center"></td><td><input type="submit" value="注册"/></td></tr>
+    <tr></tr>
+    <tr><td align="center"></td><td><input type="submit" value="退出" onClick="tuichu()"/></td></tr>
     <td></td>
     <td align="right">注：<span>号必填</span></td>
 </table>

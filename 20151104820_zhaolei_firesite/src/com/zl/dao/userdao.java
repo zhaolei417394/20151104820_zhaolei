@@ -24,10 +24,7 @@ public class userdao {
 			ResultSet rs = null;
 			//实例化UserBean对象userbrean，用于返回结果
 			user userbrean = null;
-			
-			//sql语句   ？代表占位符
 			String sql = "select * from user where username=? and userpassword=?";
-			
 			try {
 				//运行sql语句
 				pstmt = conn.prepareStatement(sql);
@@ -94,7 +91,7 @@ public class userdao {
 				pstmt.setString(1, username);
 				pstmt.setString(2, userpassword);
 				pstmt.setString(3, sex);
-				pstmt.setString(3, phone);
+				pstmt.setString(4, phone);
 				pstmt.executeUpdate();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
